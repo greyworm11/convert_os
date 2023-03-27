@@ -6,6 +6,7 @@ First of all, you need to install "yasm" translator, "dd" program and "cl.exe" -
 </br>
 Bootsect is written using syntax AT&T. To compile use:
 >>> *yasm -p gas -f bin -o bootsect.tmp bootsect.asm*
+
 >>> *dd bs=31744 skip=1 if=bootsect.tmp of=bootsect.bin*
 </br>
 
@@ -15,6 +16,7 @@ To check bootsect (for example, with qemu) you can try:</br>
 
 To compile kernel using Microsoft compiler use:
 >>> *cl.exe /GS- /c kernel.cpp*
+
 >>> *link.exe /OUT:kernel.bin /BASE:0x10000 /FIXED /FILEALIGN:512 /MERGE:.rdata=.data /IGNORE:4254 /NODEFAULTLIB /ENTRY:kmain /SUBSYSTEM:NATIVE kernel.obj*
 
 </br>
@@ -34,7 +36,7 @@ To check full operating system use:
 01.01.1601 00:00:00 UTC).
 
 ## Example of using
-* info
+
 ![info](https://github.com/greyworm11/convert_os/blob/main/4.%20info.JPG?raw=true)
-* posixtime
+
 ![posixtime](https://github.com/greyworm11/convert_os/blob/main/9.%20posixtime%202.JPG?raw=true)
